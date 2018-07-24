@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'students#new'
+  root to: 'sessions#new'
 
   resources :students do
     resources :courses
   end
   resources :teachers
-  get '/signin', to: 'sessions#new'
-  post '/signin', to: 'sessions#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
   get '/logout', to: 'teachers#destroy'
   post '/logout', to: 'teachers#destroy'
   # The priority is based upon order of creation: first created -> highest priority.

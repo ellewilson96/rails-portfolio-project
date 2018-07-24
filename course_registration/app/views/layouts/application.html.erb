@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1> <p class="text-center">Welcome to the Fall Semester!</h1><br>
+    <h2>Teachers of Flatiron High School Only</h2><br><br>
 
 <%= yield %>
-
+<br>
+<h4>New to Flatiron High School? Create an account <%= link_to "here!", new_teacher_path %></h4>
+</p>
 </body>
 </html>
