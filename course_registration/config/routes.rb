@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root to: 'sessions#new'
 
-  resources :students do
-    resources :courses
-  end
+  resources :students
+  resources :courses
   resources :teachers
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
