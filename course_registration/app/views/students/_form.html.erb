@@ -1,0 +1,16 @@
+<%= form_for @student do |f| %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :gpa %>
+  <%= f.text_field :gpa %><br>
+
+  <%= f.label :behavior %>
+  <%= f.text_field :behavior %><br>
+
+  <%= f.submit %>
+  <% end %>
