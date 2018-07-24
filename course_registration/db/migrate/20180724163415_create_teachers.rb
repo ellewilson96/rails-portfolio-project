@@ -3,7 +3,7 @@ class CreateTeachers < ActiveRecord::Migration
     create_table :teachers do |t|
       t.string :username
       t.string :password_digest
-      t.string--no-test-framework :subject
+      t.string :subject
 
       t.timestamps null: false
     end
