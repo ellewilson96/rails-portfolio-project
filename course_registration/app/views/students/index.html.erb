@@ -1,0 +1,8 @@
+<h1>Your Students</h1>
+<h2><% @students.each do |student| %>
+  <%= @student.first_name %><br>
+  <%= @student.last_name %><br>
+  <%= @student.favorite_subject %><br>
+  <%= @student.gpa %><br>
+  <%= @student.behavior %><br>
+  <% end %>
