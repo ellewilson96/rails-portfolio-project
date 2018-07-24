@@ -6,13 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<style>
+body {background-color: powderblue;
+      text-align: center;
+      font-family: "Calibri", sans-serif;}
+h1   {color: #0000cd;}
+p    {color: #191970;}
+</style>
 <body>
-  <h1> <p class="text-center">Welcome to the Fall Semester!</h1><br>
+  <h1>Welcome to the Fall Semester!</h1><br>
     <h2>Teachers of Flatiron High School Only</h2><br><br>
 
 <%= yield %>
 <br>
-<h4>New to Flatiron High School? Create an account <%= link_to "here!", new_teacher_path %></h4>
-</p>
+
 </body>
 </html>
