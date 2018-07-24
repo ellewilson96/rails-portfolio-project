@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-   @teacher = Teacher.find_by(username: params[:username])
+   @teacher = Teacher.find_by(username: params[:teacher][:username])
    if @teacher && @teacher.authenticate(params[:teacher][:password])
      session[:teacher_id] = @teacher.id
      redirect_to teacher_path(@teacher)
