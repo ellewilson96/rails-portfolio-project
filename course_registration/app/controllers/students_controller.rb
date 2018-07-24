@@ -4,6 +4,12 @@ class StudentsController < ApplicationController
     @teacher = current_teacher
   end
 
+  def show
+    @student = Student.find_by_id(params[:id])
+    @teacher = current_teacher
+    @course = Course.new
+  end
+
   def new
     @student = Student.new
   end
@@ -11,12 +17,6 @@ class StudentsController < ApplicationController
   def create
     @student = Student.create(student_params)
     redirect_to student_path(@student)
-  end
-
-  def show
-    @student = Student.find_by_id(params[:id])
-    @teacher = current_teacher
-    @course = Course.new
   end
 
   def edit
@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :gpa, :behavior)
+    params.require(:student).permit(:first_name, :last_name, :favorite_subject, :gpa, :behavior)
   end
 
 end

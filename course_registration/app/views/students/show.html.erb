@@ -1,6 +1,17 @@
-<h1>Your Students</h1>
-  <%= @student.first_name %><br>
-  <%= @student.last_name %><br>
-  <%= @student.favorite_subject %><br>
-  <%= @student.gpa %><br>
-  <%= @student.behavior %><br>
+<h2>Student Profile</h2><br>
+
+  First Name:<%= @student.first_name %>
+  Last Name:<%= @student.last_name %>
+  Favorite Subject:<%= @student.favorite_subject %>
+  GPA:<%= @student.gpa %>
+  Behavior:<%= @student.behavior %>
+
+  <% if @teacher.logged_in?%>
+    <%= link_to "Edit Student Information", edit_student_path %><br>
+    <% else %>
+      <%= form_for @course do |f|%>
+      <%= f.hidden_field :course_id, value: @student.id %>
+      <%= f.hidden_field :teacher_id, value: @teacher.id %>
+      <%= f.submit "Choose this Course" %>
+      <% end %>
+  <% end %>
