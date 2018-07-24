@@ -8,6 +8,11 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  def create
+    @student = Student.create(student_params)
+    redirect_to student_path(@student)
+  end
+
   def show
     @student = Student.find_by_id(params[:id])
     @teacher = current_teacher
