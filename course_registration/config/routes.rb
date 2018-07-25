@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :teachers
   get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
   get '/logout', to: 'teachers#destroy'
   post '/logout', to: 'teachers#destroy'
   # The priority is based upon order of creation: first created -> highest priority.

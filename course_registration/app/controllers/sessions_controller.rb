@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
   def create
-   @teacher = Teacher.find_by(username: params[:teacher][:username])
-   if @teacher && @teacher.authenticate(params[:teacher][:password])
-     session[:teacher_id] = @teacher.id
-     redirect_to teacher_path(@teacher)
-   else
-     redirect_to '/login'
-   end
- end
+      teacher = Teacher.find_or_create_by(:uid => auth['uid']) do |teacher|
+        teacher.username = auth['info']['username']
+      end
+      session[:teacher_id] = teacher.try(:id)
+    end
+
+    def auth
+      request.env['omniauth.auth']
+    end
 end
