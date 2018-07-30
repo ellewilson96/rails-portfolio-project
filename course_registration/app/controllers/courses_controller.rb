@@ -5,7 +5,6 @@ class CoursesController < ApplicationController
 
   def create
   @course = Course.create(course_params)
-  @course_id = @course.id
   redirect_to course_path(@course)
   end
 
@@ -21,4 +20,5 @@ class CoursesController < ApplicationController
   def course_params
     params.require(:course).permit(:name, :number)
   end
+  
 end

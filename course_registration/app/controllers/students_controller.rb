@@ -2,6 +2,7 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @teacher = current_teacher
+    @course = Course.find_by_id(params[:course_id])
   end
 
   def show

@@ -1,6 +1,9 @@
 <h1>All Available Courses</h1><br>
 <% @courses.each do |course| %>
-  <%= @course.number %> - <%= @course.name %> - <%= link_to "View Course", course_path %>
-  <% end %><br>
+<li><%= course.number %> - <%= course.name %>
+<% @course_id = course.id %>
+<%= link_to "View", course_path(@course_id) %></li>
+<% end %>
+<br>
 
   <%= link_to "Create a New Course", new_course_path %>
