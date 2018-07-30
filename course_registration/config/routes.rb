@@ -1,20 +1,26 @@
 Rails.application.routes.draw do
-  root to: 'welcome#home'
 
 
   resources :courses do
-    resources :students, only: [:index, :show, :new, :create, :edit, :update]
+    resources :students
   end
-  resources :students
 
-
-  resources :teachers
   resources :grades
 
+  resources :teachers
+  get '/signup', to: "teachers#new"
+  post '/signup', to: "teachers#create"
+  root to: 'teachers#show'
+
+
   get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#new'
-  get '/logout', to: 'teachers#destroy'
-  post '/logout', to: 'teachers#destroy'
+  post '/login', to: "sessions#create"
+
+  get '/logout', to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
+
+
+
 
   get '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
