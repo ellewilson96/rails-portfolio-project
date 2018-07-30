@@ -17,6 +17,7 @@ class TeachersController < ApplicationController
   def show
     if logged_in?
       @teacher = current_teacher
+      redirect_to teacher_path(@teacher)
     else
       redirect_to '/'
     end

@@ -3,10 +3,9 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-
   def create
   @course = Course.create(course_params)
-  redirect_to teacher_path(@course.teacher)
+  redirect_to course_path(@course)
   end
 
   def new

@@ -7,7 +7,6 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find_by_id(params[:id])
     @teacher = current_teacher
-    @course = Course.new
   end
 
   def new

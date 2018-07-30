@@ -1,4 +1,3 @@
-<h1>Course #<%= @course.number %></h1>
-<br>
-<h2>Fall 2018 Semester </h2><br>
-<p><%= link_to "See Students in this Course", course_students_path %></p><br>
+<h1>Course #<%= @course.number %> - <%= @course.name %></h1>
+<p><h2>Fall 2018 Semester </h2></p><br>
+<p><%= link_to "See Students in this Course", course_students_path(@course) %></p><br>
