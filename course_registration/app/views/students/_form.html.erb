@@ -6,5 +6,8 @@
   <%= f.label :last_name %>
   <%= f.text_field :last_name %><br>
 
+  <%= f.label :course_name %>
+  <%= f.collection_select :course_id, Course.all, :id, :name %><br>
+
   <%= f.submit %>
   <% end %>

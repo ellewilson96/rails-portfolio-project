@@ -1,0 +1,8 @@
+<h2>Editing Course Enrollment</h2>
+
+<%= form_for @student do |f| %>
+
+  <%= f.collection_select :course, @courses %><br>
+
+  <%= f.submit :submit %><br>
+  <% end %>

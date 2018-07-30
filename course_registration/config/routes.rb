@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
 
   resources :courses do
-    resources :students
+    resources :students, only: [:index, :show, :new, :create, :edit, :update]
   end
+  resources :students
+
 
   resources :teachers
   resources :grades
