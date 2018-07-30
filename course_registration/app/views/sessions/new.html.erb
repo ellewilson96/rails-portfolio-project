@@ -1,11 +1,11 @@
-<%= form_for(:teacher, url: login_path) do |f| %>
+<h1> Log In here! </h1>
+<%= form_for @teacher, url: login_path, method: :post do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
 
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Sign In"  %>
-    <% end %><br>
+    <%= f.submit "Log in" %>
+  <% end %><br>
 <h4>New to Flatiron High School? Create an account <%= link_to "here!", new_teacher_path %></h4>

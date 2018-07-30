@@ -5,14 +5,16 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params)
-    if @teacher.save
-      session[:teacher_id] = @teacher.id
-      redirect_to teacher_path(@teacher)
-    else
-      render '/'
-    end
+    begin
+  @teacher = Teacher.from_omniauth(request.env['omniauth.auth'])
+  session[:teacher_id] = @teacher.id
+  flash[:success] = "Welcome, #{@teacher.name}!"
+  rescue
+  flash[:warning] = "There was an error while trying to authenticate you..."
   end
+  redirect_to root_path
+  end
+end
 
   def show
     if logged_in?
@@ -32,5 +34,3 @@ class TeachersController < ApplicationController
   def teacher_params
     params.require(:teacher).permit(:username, :password, :subject)
   end
-
-end
