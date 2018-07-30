@@ -1,12 +1,12 @@
 <h1>My Profile</h1>
 <h2><p><%= @teacher.username %></h2></p>
-<h3><p>Expert in: <%= @teacher.subject %></p>
-  <p><%= link_to "See Fall 2018 Courses", courses_path %></p><br>
+<h3><p>Expert in: <%= @teacher.subject %></p><br>
+  <p><%= link_to "See Fall 2018 Courses", courses_path %></p>
   <p><%= link_to "Create a New Course", new_course_path %></p><br>
 
   <p><%= link_to "Enroll a Student in a Course", new_course_student_path %></p><br>
 
-  <p><%= link_to "See Student Grades", grades_path %></p><br>
+  <p><%= link_to "See Student Grades", grades_path %></p>
   <p><%= link_to "Update Student Grades", edit_grade_path %></p><br>
 
   <p><%= link_to "Log out", logout_path %></p>
