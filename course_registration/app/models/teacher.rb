@@ -3,6 +3,6 @@ class Teacher < ActiveRecord::Base
   validates :username, presence: true
   validates :username, uniqueness: true
 
-  has_many :courses
-  has_many :students, through: :courses
+  has_many :grades
+  has_many :students, through: :grades
 end

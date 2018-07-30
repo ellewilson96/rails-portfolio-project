@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root to: 'static#new'
 
-  resources :students
-  resources :courses
+
+  resources :courses do
+    resources :students
+  end
+
   resources :teachers
+  resources :grades
+
   get '/login', to: 'sessions#new'
   get '/auth/facebook/callback' => 'sessions#create'
   get '/logout', to: 'teachers#destroy'
