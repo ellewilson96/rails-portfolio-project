@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :grades
 
   get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#new'
   get '/auth/facebook/callback' => 'sessions#create'
   get '/logout', to: 'teachers#destroy'
   post '/logout', to: 'teachers#destroy'
