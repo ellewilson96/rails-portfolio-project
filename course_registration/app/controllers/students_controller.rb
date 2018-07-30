@@ -14,8 +14,7 @@ end
 
   def show
     if params[:course_id]
-      @course = Course.find_by(id: params[:course_id])
-    @student = @course.students.find_by(id: params[:id])
+    @course = Course.find_by(id: params[:course_id])
     if @student.nil?
     redirect_to course_students_path(@course), alert: "Student not found"
   end
@@ -61,7 +60,7 @@ end
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :course_name)
+    params.require(:student).permit(:first_name, :last_name, :course_id)
   end
 
 end

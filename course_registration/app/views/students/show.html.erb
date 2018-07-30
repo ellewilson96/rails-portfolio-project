@@ -1,16 +1,15 @@
 <h2>Student Profile</h2><br>
 
-  First Name:<%= @student.first_name %>
-  Last Name:<%= @student.last_name %><br>
+  <p><%= @student.first_name %> <%= @student.last_name %></p><br>
 
-<h3>Fall 2018 Courses</h3><br>
+<h3>Fall 2018 Enrolled Course</h3><br>
 
-  <% @student.courses.each do |course| %>
-  <%= @course.number %> - <%= @course.name %>
-  <% end %>
+<% @course = @student.course %>
+  <%= @course.number %> - <%= @course.name %><br>
 
-  <% if @teacher.logged_in?%>
-    <%= link_to "Edit Student Grades", edit_grade_path %><br>
+
+  <% if logged_in? %>
+    <%= link_to "Edit Student Grades", edit_grade_path %>
     <% else %>
       <%= form_for @grade do |f|%>
       <%= f.hidden_field :behavior, value: @grade.behavior %>
