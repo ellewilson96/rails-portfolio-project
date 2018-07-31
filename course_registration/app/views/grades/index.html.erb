@@ -1,0 +1,5 @@
+<% @students = Student.all %>
+<% @students.each do |student| %>
+<%= student.first_name + student.last_name%> -
+<%= student.grade.behavior%> - <%= student.grade.letter_grade %>
+<% end %>

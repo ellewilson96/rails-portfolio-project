@@ -3,14 +3,14 @@ class GradesController < ApplicationController
   def index
     @grades = Grade.all
   end
-  
+
   def new
   @grade = Grade.new
   end
 
   def create
     @grade = Grade.new(grade_params)
-    redirect_to teacher_path(@teacher)
+    redirect_to teacher_session_path
   end
 
   def edit

@@ -1,3 +1,5 @@
-<%= link_to "Log in with Facebook", auth_facebook_callback_path %><br>
-<%= link_to "Log in", new_teacher_session_path %><br>
-<%= link_to "Sign Up", teacher_session_path %></h3>
+<h4>Welcome! You are signed in as <%= current_teacher.email %>.<h4>
+
+<h3><%= link_to 'View All Courses', courses_path %></h3>
+
+<h3><%= link_to 'View All Grades', grades_path %></h3>
