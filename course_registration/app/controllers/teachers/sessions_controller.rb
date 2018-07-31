@@ -1,8 +1,8 @@
-class TeachersController < ApplicationController
+class Teachers::SessionsController < Devise::SessionsController
     def index
       @teachers = Teacher.all
     end
-    
+
     def show
       if current_teacher
         @teacher = Teacher.new

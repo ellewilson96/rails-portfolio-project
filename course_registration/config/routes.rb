@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :teachers
   root to: 'welcome#home'
 
 
@@ -9,15 +10,8 @@ Rails.application.routes.draw do
   resources :grades
 
   resources :teachers
-  get '/signup', to: "teachers#new"
-  post '/signup', to: "teachers#create"
+  devise_for :teachers, controllers: { sessions: 'teachers/sessions' }
 
-
-  get '/login', to: 'sessions#new'
-  post '/login', to: "sessions#create"
-
-  get '/logout', to: 'sessions#destroy'
-  post '/logout', to: 'sessions#destroy'
 
 
 
