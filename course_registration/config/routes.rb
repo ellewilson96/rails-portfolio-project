@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'welcome#home'
 
 
   resources :courses do
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   resources :teachers
   get '/signup', to: "teachers#new"
   post '/signup', to: "teachers#create"
-  root to: 'teachers#show'
 
 
   get '/login', to: 'sessions#new'

@@ -1,5 +1,8 @@
 class TeachersController < ApplicationController
-
+    def index
+      @teachers = Teacher.all
+    end
+    
     def show
       if current_teacher
         @teacher = Teacher.new
