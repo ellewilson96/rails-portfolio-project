@@ -3,9 +3,8 @@ class Teacher < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_secure_password
-  validates :username, presence: true
-  validates :username, uniqueness: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
 
   has_many :grades
   has_many :students, through: :grades
