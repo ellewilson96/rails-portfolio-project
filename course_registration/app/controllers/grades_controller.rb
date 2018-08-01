@@ -1,7 +1,12 @@
 class GradesController < ApplicationController
 
   def index
-    @grades = Grade.all
+  if params[:user_id]
+    user = User.find(params[:user_id])
+    @grades = current_user.grades
+  else 
+      @grades = Grade.all
+    end
   end
 
   def new
@@ -9,7 +14,7 @@ class GradesController < ApplicationController
   end
 
   def create
-    @grade = Grade.new(grade_params)
+  @grade = current_user.grades.build(grade_params)
   end
 
   def edit
@@ -24,5 +29,7 @@ class GradesController < ApplicationController
     params.require(:grade).permit(:student_id, :user_id, :letter_grade, :behavior)
   end
 
-
+  def set_grade
+    @grade = Grade.find(params[:id])
+  end
 end

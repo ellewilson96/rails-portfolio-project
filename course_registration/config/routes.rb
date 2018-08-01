@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'application#home'
 
 
   resources :students do
     resources :grades
   end
+
+  root to: 'application#home'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
