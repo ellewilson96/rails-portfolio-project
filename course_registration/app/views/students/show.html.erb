@@ -3,12 +3,9 @@
   <p><%= @student.first_name %> <%= @student.last_name %></p><br>
 
 
-  <% if logged_in? %>
-    <%= link_to "Edit Student Grades", edit_grade_path %>
+  <% if user_signed_in? %>
+    <%= link_to "Edit Student Grades", edit_student_grade_path(@student, @grade) %>
+    <%= link_to "Add Student Grades", new_student_grade_path(@student, @grade) %>
     <% else %>
-      <%= form_for @grade do |f|%>
-      <%= f.hidden_field :behavior, value: @grade.behavior %>
-      <%= f.hidden_field :letter_grade, value: @grade.letter_grade %>
-      <%= f.submit "Add New Grade" %>
+      You must be logged in to view this page.
       <% end %>
-  <% end %>

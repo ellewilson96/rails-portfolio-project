@@ -4,15 +4,21 @@ class StudentsController < ApplicationController
 end
 
   def show
-
-end
+    @student = Student.find_by_id(params[:id])
+    @grade = @student.grades.build
+  end
 
   def new
     @student = Student.new
   end
 
   def create
-    @student = current_user.students
+    @student = current_user.students.build(student_params)
+    if @student.save
+      redirect_to student_path(@student)
+    else
+      render 'students#new'
+    end
   end
 
   def edit
@@ -24,7 +30,7 @@ end
   end
 
   def destroy
-  
+
   end
 
   private
