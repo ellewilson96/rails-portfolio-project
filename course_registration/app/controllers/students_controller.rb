@@ -1,6 +1,11 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+    if params[:user_id]
+      user = User.find(params[:user_id])
+      @students = current_user.students
+    else
+        @students = Student.all
+      end
   end
 
   def show
