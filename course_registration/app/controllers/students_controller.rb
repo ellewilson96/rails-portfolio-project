@@ -1,11 +1,10 @@
 class StudentsController < ApplicationController
   def index
-
-end
+    @students = Student.all
+  end
 
   def show
     @student = Student.find_by_id(params[:id])
-    @grade = @student.grades.build
   end
 
   def new

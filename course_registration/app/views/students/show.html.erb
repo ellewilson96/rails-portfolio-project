@@ -1,11 +1,13 @@
-<h2>Student Profile</h2><br>
+<h2>Student Profile</h2>
 
-  <p><%= @student.first_name %> <%= @student.last_name %></p><br>
+  <h4><%= @student.first_name %> <%= @student.last_name %></h4><br>
 
-
-  <% if user_signed_in? %>
-    <%= link_to "Edit Student Grades", edit_student_grade_path(@student, @grade) %>
+<% @grade = @student.grades %>
+  <% if @grade.nil? %>
+<h4>No grades available for <%= @student.first_name %> <%= @student.last_name %>.</h4>
     <%= link_to "Add Student Grades", new_student_grade_path(@student, @grade) %>
-    <% else %>
-      You must be logged in to view this page.
+  <% else %>
+    <%= link_to "Edit Student Grades", student_grades_path(@student) %><br>
       <% end %>
+<br>
+<h3><%= link_to "Back to All Students", students_path %></h3>

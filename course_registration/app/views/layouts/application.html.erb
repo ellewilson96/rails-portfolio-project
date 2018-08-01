@@ -8,8 +8,8 @@
 </head>
 <style>
 body {background-color: powderblue;
-      text-align: center;
-      font-family: "Calibri", sans-serif;}
+      font-family: "Calibri", sans-serif;
+      text-align: center;}
 h1   {color: #0000cd;}
 h2   {color: #4c4cff;
       font-style: italic;}
@@ -23,11 +23,15 @@ h4   {font-style: underline;
 a {
   color: #191970;
 }
+.center {
+  list-style-position: inside;
+}
 </style>
 <body>
   <% if user_signed_in? %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
   <%= link_to 'Home', user_path(current_user) %>
+
   <% else %>
   <%= link_to 'Sign Up', new_user_registration_path %> |
   <%= link_to 'Login', new_user_session_path %>
@@ -36,10 +40,16 @@ a {
     <h2>Teachers of Flatiron High School Only</h2><br>
     <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
+  <%= yield %>
 
-
-<%= yield %>
 <br>
+<% if user_signed_in? %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
+<%= link_to 'Home', user_path(current_user) %>
 
+<% else %>
+<%= link_to 'Sign Up', new_user_registration_path %> |
+<%= link_to 'Login', new_user_session_path %>
+<% end %>
 </body>
 </html>

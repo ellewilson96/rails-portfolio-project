@@ -9,6 +9,9 @@ class GradesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
   @student = Student.find_by_id(params[:student_id])
   @grade = @student.grades.build
@@ -17,7 +20,6 @@ class GradesController < ApplicationController
   def create
     @grade = current_user.grades.build(grade_params)
     @grade.student = Student.find_by_id(params[:student_id])
-    binding.pry
     if @grade.save
       redirect_to user_path(current_user)
     else
@@ -26,9 +28,18 @@ class GradesController < ApplicationController
   end
 
   def edit
+    @grade = Grade.find(params[:id])
   end
 
   def update
+    @url = student_grade_path
+    @grade = Grade.find(params[:id])
+    @grade.update_attributes(grade_params)
+    if @grade.save
+      redirect_to student_grades_path(@grade.student_id)
+    else
+      render :edit
+    end
   end
 
   private
@@ -40,3 +51,4 @@ class GradesController < ApplicationController
   def set_grade
     @grade = Grade.find(params[:id])
   end
+end

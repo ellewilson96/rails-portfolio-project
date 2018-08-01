@@ -1,6 +1,1 @@
-<% @grades = Grade.all %>
-<% @grades.each do |grade| %>
-<p><%= link_to "Add a New Student Grade", new_student_grade_path(grade.student, grade) %></p>
-<p><%= link_to "See Student Grades", student_grades_path(grade.student) %></p>
-<p><%= link_to "Update Student Grades", edit_student_grade_path(grade.student, grade) %></p><br>
-<% end %>
+<%= link_to 'View All Students', students_path %>

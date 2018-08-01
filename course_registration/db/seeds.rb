@@ -5,7 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Course.create(name: 'Calculus', number: '500', teacher_id: 1)
-Course.create(name: 'Painting', number: '1123', teacher_id: 3)
-Course.create(name: 'Art History', number: '1124', teacher_id: 2)

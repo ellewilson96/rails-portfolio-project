@@ -1,8 +1,18 @@
 <% @students = Student.all %>
 <% @students.each do |student| %><br>
 <div>
-  <%= student.first_name + student.last_name%><br>
-  <% student.grades.each do |grade| %>
-<li><%= grade.behavior %> - <%= grade.letter_grade %></li>
-<% end %></div>
+<h3><%= student.first_name %> <%= student.last_name%></h3>
+<ol class="center">  <% student.grades.each do |grade| %>
+
+<li>
+  <h4>Behavior: <%= grade.behavior %><br>
+Letter Grade: <%= grade.letter_grade %><br>
+<%= link_to 'Update Grade', edit_student_grade_path(student, grade) %>
+  </h4>
+</li>
+<% end %>
+</ol>
+</div>
+<h3><%= link_to "Back to All Students", students_path %></h3>
+
 <% end %>
