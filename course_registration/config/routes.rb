@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :teachers, controllers: { omniauth_callbacks: 'teachers/omniauth_callbacks', registrations: 'registrations' }
+
   root to: 'welcome#home'
 
 
