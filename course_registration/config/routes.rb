@@ -1,22 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :teachers, controllers: { omniauth_callbacks: 'teachers/omniauth_callbacks', registrations: 'registrations' }
 
-  root to: 'welcome#home'
+  devise_for :users
+  root to: 'application#home'
 
 
-  resources :courses do
-    resources :students
+  resources :students do
+    resources :grades
   end
 
-  resources :grades
 
-  devise_for :teachers, controllers: { sessions: 'teachers/sessions' }
-
-
-
-
-
-  get '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

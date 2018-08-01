@@ -10,7 +10,6 @@ class GradesController < ApplicationController
 
   def create
     @grade = Grade.new(grade_params)
-    redirect_to teacher_session_path
   end
 
   def edit
@@ -22,7 +21,7 @@ class GradesController < ApplicationController
   private
 
   def grade_params
-    params.require(:grade).permit(:student_id, :teacher_id, :letter_grade, :behavior)
+    params.require(:grade).permit(:student_id, :user_id, :letter_grade, :behavior)
   end
 
 
