@@ -1,4 +1,4 @@
-<%= form_for @grade do |f| %>
+<%= form_for @grade, url: "/students/#{@grade.student_id}/grades" do |f| %>
 
   <%= f.label :behavior %>
   <%= f.text_field :behavior %><br>

@@ -4,17 +4,25 @@ class GradesController < ApplicationController
   if params[:user_id]
     user = User.find(params[:user_id])
     @grades = current_user.grades
-  else 
+  else
       @grades = Grade.all
     end
   end
 
   def new
-  @grade = Grade.new
+  @student = Student.find_by_id(params[:student_id])
+  @grade = @student.grades.build
   end
 
   def create
-  @grade = current_user.grades.build(grade_params)
+    @grade = current_user.grades.build(grade_params)
+    @grade.student = Student.find_by_id(params[:student_id])
+    binding.pry
+    if @grade.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -32,4 +40,3 @@ class GradesController < ApplicationController
   def set_grade
     @grade = Grade.find(params[:id])
   end
-end
