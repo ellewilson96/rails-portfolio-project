@@ -1,0 +1,10 @@
+<h3>Welcome back, <%= current_user.email %></h3>
+<h4>Your Students</h4> <br>
+<% @students = Student.all %>
+<% @students.each do |student| %><br>
+<div>
+  <%= student.first_name + student.last_name%><br>
+  <% student.grades.each do |grade| %>
+<li><%= grade.behavior %> - <%= grade.letter_grade %></li>
+<% end %></div>
+<% end %>

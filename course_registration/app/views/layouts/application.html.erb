@@ -15,16 +15,16 @@ h2   {color: #4c4cff;
       font-style: italic;}
 p    {color: #191970;}
 h3   {font-style: underline;
-      font-style: italic;}
+      font-style: italic;
+      color: #0000aa;}
+h4   {font-style: underline;
+      font-style: italic;
+      color: #0000dd;}
 a {
   color: #191970;
 }
 </style>
 <body>
-  <h1>Welcome to the Fall Semester!</h1><br>
-    <h2>Teachers of Flatiron High School Only</h2><br><br>
-    <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
   <% if user_signed_in? %>
   <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
   <%= link_to 'Home', user_path(current_user) %>
@@ -32,6 +32,11 @@ a {
   <%= link_to 'Sign Up', new_user_registration_path %> |
   <%= link_to 'Login', new_user_session_path %>
 <% end %>
+  <h1>Welcome to the Fall Semester!</h1>
+    <h2>Teachers of Flatiron High School Only</h2><br>
+    <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
 
 <%= yield %>
 <br>
