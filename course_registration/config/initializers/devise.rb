@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
@@ -8,7 +9,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'b6871c3ca4358367a446691864804710b46f0f1eb8ef8fd4af1aef2e377df657605e6186e9b90e2995259d981184ff6d8d3c6a4b0d57634241465ac8e3a6bdd4'
+  config.secret_key = 'b6871c3ca4358367a446691864804710b46f0f1eb8ef8fd4af1aef2e377df657605e6186e9b90e2995259d981184ff6d8d3c6a4b0d57634241465ac8e3a6bdd4'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -280,6 +281,6 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :facebook, "APP_ID", "APP_SECRET"
+  config.omniauth :facebook, '279609292588033', '2543613b18dbdecbfc9efffc7ff7adc4'
 
 end
