@@ -5,8 +5,6 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'users/omniauth_callbacks'
       }
 
-  get 'users/:id' => 'users#show', as: :user
-
 
   resources :students do
     resources :grades

@@ -52,4 +52,5 @@ class GradesController < ApplicationController
   def set_grade
     @grade = Grade.find(params[:id])
   end
+
 end

@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+
   def index
     if params[:user_id]
       user = User.find(params[:user_id])
@@ -21,7 +22,7 @@ class StudentsController < ApplicationController
     if @student.save
       redirect_to student_path(@student)
     else
-      render 'students#new'
+      render :new
     end
   end
 
@@ -42,5 +43,6 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:first_name, :last_name)
   end
+
 
 end

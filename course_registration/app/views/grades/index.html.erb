@@ -1,13 +1,17 @@
 <div>
-<h3><%= @student.first_name %> <%= @student.last_name%></h3>
-<ol class="center">  <% @student.grades.each do |grade| %>
-
+  <h3><%= @student.first_name %> <%= @student.last_name%></h3>
+<ol class="center">
+  <% if @student.grades.empty? %>
+  <%= link_to "Add a New Grade for #{@student.first_name}", new_student_grade_path(@student) %>
+  <% else %>
+  <% @student.grades.each do |grade| %>
 <li>
   <h4>Behavior: <%= grade.behavior %><br>
-Letter Grade: <%= grade.letter_grade %><br>
-<%= link_to 'Update Grade', edit_student_grade_path(@student, grade) %>
+      Letter Grade: <%= grade.letter_grade %><br>
+      <%= link_to 'Update Grade', edit_student_grade_path(@student, grade) %>
   </h4>
 </li>
+  <% end %>
 <% end %>
 </ol>
 </div>
