@@ -2,12 +2,8 @@ class GradesController < ApplicationController
 
   def index
     @student = Student.find_by_id(params[:student_id])
-  if params[:user_id]
-    user = User.find(params[:user_id])
+    @user = User.find_by_id(params[:user_id])
     @grades = current_user.grades
-  else
-      @grades = Grade.all
-    end
   end
 
   def show
@@ -30,15 +26,18 @@ class GradesController < ApplicationController
 
   def edit
     @grade = Grade.find(params[:id])
-  end
+end
 
   def update
     @url = student_grade_path
     @grade = Grade.find(params[:id])
-    @grade.update_attributes(grade_params)
-    if @grade.save
+    if @grade.user_id = current_user.id
+      @grade.update_attributes(grade_params)
+      @grade.save
       redirect_to students_path
     else
+      @grade.errors.add(:base, "You must be the original creator to make changes
+      to this grade.")
       render :edit
     end
   end
