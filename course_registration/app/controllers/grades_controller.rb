@@ -22,7 +22,7 @@ class GradesController < ApplicationController
     @grade = current_user.grades.build(grade_params)
     @grade.student = Student.find_by_id(params[:student_id])
     if @grade.save
-      redirect_to user_path(current_user)
+      redirect_to students_path
     else
       render :new
     end
