@@ -3,7 +3,7 @@ class GradesController < ApplicationController
   def index
     @student = Student.find_by_id(params[:student_id])
     @user = User.find_by_id(params[:user_id]) #check if needed
-    @grades = current_user.grades
+    @grades = Grade.all
   end
 
   def show

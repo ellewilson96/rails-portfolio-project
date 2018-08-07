@@ -1,15 +1,15 @@
 <h3>Welcome back, <%= current_user.email %></h3>
   <h4>All Flatiron High School Students</h4>
-    <% if @students.empty? %>
-    <h4>No students? <p><%= link_to 'Click Here to Add a Student', new_student_path %></p></h4>
-    <% else %>
   <% @students.each do |student| %>
 <div>
   <h3><%= student.first_name %> <%= student.last_name%></h3>
-      <%= link_to "View #{student.first_name}'s Grades", student_grades_path(student) %>
-      <% end %>
+  <% if %>
+    <%= link_to "Add Grade for #{student.first_name}", new_student_grade_path(student) %>
+      <% else %>
+    <%= link_to "View #{student.first_name}'s Grades", student_grades_path(student) %>
+    <% end %>
+  <% end %>
       <h3><%= link_to "Enroll a New Student", new_student_path %><br>
         <%= link_to "Back to All Students", students_path %></h3>
 
       </div>
-    <% end %>
