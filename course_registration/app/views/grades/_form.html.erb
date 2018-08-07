@@ -15,8 +15,8 @@
   <%= f.label :behavior %>
   <%= f.text_field :behavior %><br>
 
-  <%= f.label :letter_grade %>
-  <%= f.text_field :letter_grade %><br>
+  <%= f.label :score %>
+  <%= f.number_field :score, min: 0, max: 100 %><br>
 
   <%= f.submit %>
   <% end %>

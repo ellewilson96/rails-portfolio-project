@@ -2,18 +2,17 @@
   <h3>
     <%= @student.first_name %> <%= @student.last_name%></h3>
   <ol class="center">
-      <% if @student.grades.empty? %>
+      <% if @student.grades %>
         <%= link_to "Add a New Grade for #{@student.first_name}", new_student_grade_path(@student) %>
       <% else %>
         <% @student.grades.each do |grade| %>
 <h4><li>
       Behavior: <%= grade.behavior %><br>
-      Letter Grade: <%= grade.letter_grade %><br>
-        <%= link_to 'Update Grade', edit_student_grade_path(@student, grade) %><br>
+      Score: <%= grade.score %><br>
+        <%= link_to 'Update Grade', edit_student_grade_path(@student, grade) if current_user == grade.user %><br>
       <% end %>
         <% @student.grades.each do |grade| %>
-        <% @user = grade.user %>
-        Submitted by: <%= @user.email %>
+        Submitted by: <%= grade.user.email %>
       <% end %>
 <% end %>
   </h4>

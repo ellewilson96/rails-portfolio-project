@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def show
-    @grades = Grade.all
-    @students = Student.all
+    @students = current_user.students
   end
 end

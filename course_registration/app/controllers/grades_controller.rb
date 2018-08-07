@@ -2,7 +2,7 @@ class GradesController < ApplicationController
 
   def index
     @student = Student.find_by_id(params[:student_id])
-    @user = User.find_by_id(params[:user_id])
+    @user = User.find_by_id(params[:user_id]) #check if needed
     @grades = current_user.grades
   end
 
@@ -45,7 +45,7 @@ end
   private
 
   def grade_params
-    params.require(:grade).permit(:student_id, :user_id, :letter_grade, :behavior)
+    params.require(:grade).permit(:student_id, :user_id, :score, :behavior)
   end
 
   def set_grade
