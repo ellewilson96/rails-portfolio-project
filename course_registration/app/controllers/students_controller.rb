@@ -1,13 +1,8 @@
 class StudentsController < ApplicationController
 
   def index
-    if params[:user_id]
-      @students = current_user.students
-      @grades = current_user.grades
-    else
-        @students = Student.all
-        @grades = Grade.all
-      end
+      @students = Student.all
+      @grades = current_user.grades.all
   end
 
   def show
