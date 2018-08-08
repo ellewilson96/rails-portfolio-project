@@ -3,13 +3,13 @@
   <% @students.each do |student| %>
 <div>
   <h3><%= student.first_name %> <%= student.last_name%></h3>
-  <% if %>
+  <% if  @grades.empty? %>
+  <%= link_to "View #{student.first_name}'s Grades", student_grades_path(student) %>
+  <% else %>
     <%= link_to "Add Grade for #{student.first_name}", new_student_grade_path(student) %>
-      <% else %>
-    <%= link_to "View #{student.first_name}'s Grades", student_grades_path(student) %>
-    <% end %>
   <% end %>
-      <h3><%= link_to "Enroll a New Student", new_student_path %><br>
-        <%= link_to "Back to All Students", students_path %></h3>
+<% end %>
+<h3><%= link_to "Enroll a New Student", new_student_path %><br>
+<%= link_to "Back to All Students", students_path %></h3>
 
-      </div>
+</div>
