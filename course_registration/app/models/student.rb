@@ -9,6 +9,4 @@ class Student < ActiveRecord::Base
     Grade.score.sort(1..0)
   end
 
-
-
 end

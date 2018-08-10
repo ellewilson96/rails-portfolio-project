@@ -1,11 +1,8 @@
 <div>
   <h3>
     <%= @student.first_name %> <%= @student.last_name%></h3>
-      <% if @student.grades.empty? %>
-        <%= link_to "Add a New Grade for #{@student.first_name}", new_student_grade_path(@student) %>
-      <% else %>
         <% @student.grades.each do |grade| %>
-<h4>
+  <h4>
       Behavior: <%= grade.behavior %><br>
       Score: <%= grade.score %><br>
       <% if current_user == grade.user %>
@@ -13,8 +10,7 @@
         Submitted by: <%= grade.user.email %>
         <% else %>
         Submitted by: <%= grade.user.email %>
-        <% end %>
-    <% end %>
+      <% end %>
 <% end %>
 <br><br>
 <%= link_to "Add a Grade for #{@student.first_name}", new_student_grade_path(@student) %>

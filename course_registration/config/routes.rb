@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'users/omniauth_callbacks'
       }
 
+  get '/students/smartest', :to => 'students#smartest'
 
   resources :students do
     resources :grades
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   root to: 'application#home'
+
 
   end
 
