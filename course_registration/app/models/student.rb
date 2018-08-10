@@ -5,8 +5,6 @@ class Student < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  def self.smartest_students
-    Grade.score.sort(1..0)
-  end
+
 
 end
