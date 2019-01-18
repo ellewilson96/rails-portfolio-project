@@ -1,7 +1,14 @@
-<h1>Top 3 Student Grades! </h1>
-  <h2><% @grades = Grade.smartest_students %>
+<div class="student-body">
+  <h1>TOP OF THE CLASS</h1><br>
+
+  <div class="student-card">
+    <% @grades = Grade.smartest_students %>
     <% @grades.each do |grade| %>
     <p><%= grade.student.first_name %> <%= grade.student.last_name %><br>
       <%= grade.score %> - <%= grade.behavior %></p>
   <% end %>
-</h2>
+</div>
+  <div class="student-links">
+    <%= link_to "Back to All Students", students_path %>
+  </div>
+</div>

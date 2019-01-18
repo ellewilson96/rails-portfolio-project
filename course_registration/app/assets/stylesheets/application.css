@@ -13,3 +13,93 @@
  *= require_tree .
  *= require_self
  */
+
+ @media only screen and (min-width: 768px) {
+  .student-card {
+   column-count: 3;
+   }
+ }
+
+ @media only screen and (max-width: 480px) {
+   .student-card {
+   column-count: 1;
+   }
+ }
+
+ @media only screen and (min-width: 481px) and (max-width:768px) {
+   .student-card {
+   column-count: 3;
+   }
+ }
+
+ header {
+      background-color: #fffff0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 5px;
+      height: 40px;
+      width: 100%;
+      box-shadow: 0 0 25px 0 black;
+      font-family: 'Helvetica', sans-serif;
+      color: #88aae0;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      text-align: center;
+      z-index: 1;
+ }
+
+a {
+  color: #8b8878;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #cdc8b1;
+  text-decoration: underline;
+}
+
+.semester {
+  display: inline;
+   position: absolute;
+   left: 20px;
+   bottom: 0px;
+   color: #8b8378;
+ }
+
+ footer {
+  background-color: #fffff0;
+  box-shadow: 0 0 25px 0 black;
+  opacity: 0.9;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Helvetica', sans-serif;
+  color: #88aae0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1;
+}
+
+ body {
+   background-image: url(./sunflower.jpg);
+   background-position: center;
+   background-size: 50%;
+   background-repeat: repeat;
+   padding-top: 50px;
+   color: #767676;
+   font-family: 'Helvetica', sans-serif;
+   text-align: center;
+ }
+
+ .content {
+   padding-top: 5px;
+   background-color: #eee8dc;
+   opacity: 0.9;
+   width: 70%;
+   margin: auto;
+ }

@@ -6,28 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<style>
-body {background-color: powderblue;
-      font-family: "Calibri", sans-serif;
-      text-align: center;}
-h1   {color: #0000cd;}
-h2   {color: #4c4cff;
-      font-style: italic;}
-p    {color: #191970;}
-h3   {font-style: underline;
-      font-style: italic;
-      color: #0000aa;}
-h4   {font-style: underline;
-      font-style: italic;
-      color: #0000dd;}
-a {
-  color: #191970;
-}
-.center {
-  list-style-position: inside;
-}
-</style>
 <body>
+  <header>
+  <div class="semester">
+  <h1>Welcome to the Fall Semester!</h1>
+  </div>
   <% if user_signed_in? %>
   <%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
   <%= link_to 'Home', students_path %>
@@ -37,13 +20,20 @@ a {
   <%= link_to 'Sign Up', new_user_registration_path %> |
   <%= link_to 'Login', new_user_session_path %>
 <% end %>
-  <h1>Welcome to the Fall Semester!</h1>
-    <h2>Teachers of Flatiron High School Only</h2>
+
+<div class="teacher-welcome">
+  Signed in as <%= current_user.email %>
+</div>
+
+</header>
+<div class="home">
     <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
+  <div class="content">
   <%= yield %>
-
+</div>
 <br>
+<footer>
 <% if user_signed_in? %>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %> |
 <%= link_to 'Home', students_path %>
@@ -53,5 +43,6 @@ a {
 <%= link_to 'Login', new_user_session_path %> |
 <%= link_to 'Sign Up', new_user_registration_path %>
 <% end %>
+</footer>
 </body>
 </html>

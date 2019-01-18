@@ -1,8 +1,8 @@
-<div>
-  <h3>
-    <%= @student.first_name %> <%= @student.last_name%></h3>
+<div class="student-body">
+  <h1>STUDENT GRADES</h1>
+    <%= @student.first_name %> <%= @student.last_name%><br>
+  <div class="student-card">
         <% @student.grades.each do |grade| %>
-  <h4>
       Behavior: <%= grade.behavior %><br>
       Score: <%= grade.score %><br>
       <% if current_user == grade.user %>
@@ -12,8 +12,9 @@
         Submitted by: <%= grade.user.email %>
       <% end %>
 <% end %>
-<br><br>
+<br>
 <%= link_to "Add a Grade for #{@student.first_name}", new_student_grade_path(@student) %>
-  </h4>
 </div>
-  <h3><%= link_to "Back to All Students", students_path %></h3>
+<div class="student-links">
+  <%= link_to "Back to All Students", students_path %>
+</div>
